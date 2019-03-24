@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 public class MyMath {
     public int setToPow2(int number){
        return number * number;

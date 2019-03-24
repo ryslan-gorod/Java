@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 public class Rhombus{
     public void printRhombus(int countStar){
         if (countStar < 3) countStar = 3;

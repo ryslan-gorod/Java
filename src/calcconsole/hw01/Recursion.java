@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 public class Recursion {
     public int fibonachi (int number){
         if (number == 0){

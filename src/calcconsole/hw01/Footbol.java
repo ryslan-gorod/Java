@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 public class Footbol {
     public int rezultRezultOfBettings(int firstGoal, int secondGoal, int userFirstGoal,int userSecondGoal){
         int rez;

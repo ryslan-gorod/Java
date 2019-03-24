@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 public class Book implements Cloneable {
     String name;
     String autor;
@@ -15,7 +17,7 @@ public class Book implements Cloneable {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "calcconsole.hw01.Book{" +
                 "name='" + name + '\'' +
                 ", autor='" + autor + '\'' +
                 ", countPages=" + countPages +

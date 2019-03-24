@@ -1,6 +1,4 @@
-import java.sql.Time;
-import java.util.Arrays;
-import java.util.Random;
+package calcconsole.hw01;
 
 public class HomeWork01 {
     public static void main(String[] args) throws CloneNotSupportedException {

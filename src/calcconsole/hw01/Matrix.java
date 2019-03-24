@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 import java.util.Arrays;
 
 public class Matrix {

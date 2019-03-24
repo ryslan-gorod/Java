@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 import java.util.Arrays;
 
 public class Person implements Cloneable {
@@ -7,7 +9,7 @@ public class Person implements Cloneable {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "calcconsole.hw01.Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +

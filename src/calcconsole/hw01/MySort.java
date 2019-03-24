@@ -1,3 +1,5 @@
+package calcconsole.hw01;
+
 public class MySort {
     public void sortIntBubble(int[] array){
         int tmp;
