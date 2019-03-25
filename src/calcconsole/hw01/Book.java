@@ -10,9 +10,10 @@ public class Book implements Cloneable {
         this.autor = autor;
         this.countPages = countPages;
     }
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return new Book(this.name,this.autor,this.countPages);
+        return new Book(this.name, this.autor, this.countPages);
     }
 
     @Override
