@@ -1,6 +1,4 @@
-package calcconsole.hw01;
-
-import java.util.Arrays;
+package com.ua.mate.hw01;
 
 public class HomeWork01 {
 

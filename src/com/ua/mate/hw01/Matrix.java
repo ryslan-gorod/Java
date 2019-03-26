@@ -1,10 +1,10 @@
-package calcconsole.hw01;
+package com.ua.mate.hw01;
 
 import java.util.Arrays;
 
 public class Matrix {
     int[][] matrix;
-
+    private static final int THOUSAND = 1000;
     public enum SizeElement {MIN, MAX};
 
     public void initMatrix(int x, int y) {
@@ -17,7 +17,7 @@ public class Matrix {
         matrix = new int[x][y];
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                matrix[i][j] = (int) (Math.random() * 1000);
+                matrix[i][j] = (int) (Math.random() * THOUSAND);
             }
         }
     }

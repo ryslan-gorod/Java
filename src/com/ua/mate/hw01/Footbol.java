@@ -1,4 +1,4 @@
-package calcconsole.hw01;
+package com.ua.mate.hw01;
 
 public class Footbol {
     public int getResultOfBettings(int firstTeamGoals, int secondTeamGoals, int userFirstGoal, int userSecondGoal) {

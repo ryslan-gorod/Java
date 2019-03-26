@@ -1,4 +1,4 @@
-package calcconsole.hw01;
+package com.ua.mate.hw01;
 
 public class Book implements Cloneable {
     String name;
@@ -11,14 +11,13 @@ public class Book implements Cloneable {
         this.countPages = countPages;
     }
 
-    @Override
     protected Object clone() throws CloneNotSupportedException {
-        return new Book(this.name, this.autor, this.countPages);
+        return super.clone();
     }
 
     @Override
     public String toString() {
-        return "calcconsole.hw01.Book{" +
+        return "Book{" +
                 "name='" + name + '\'' +
                 ", autor='" + autor + '\'' +
                 ", countPages=" + countPages +

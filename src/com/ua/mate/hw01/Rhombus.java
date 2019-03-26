@@ -1,4 +1,4 @@
-package calcconsole.hw01;
+package com.ua.mate.hw01;
 
 public class Rhombus {
     public void printRhombus(int countStar) throws Exception {

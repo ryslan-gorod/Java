@@ -1,15 +1,47 @@
-package calcconsole.hw01;
+package com.ua.mate.hw01;
 
 import java.util.Arrays;
 
 public class Person implements Cloneable {
-    String firstName;
-    String lastName;
+    private String firstName;
+    private String lastName;
     int age;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setBooks(Book[] books) {
+        this.books = books;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Book[] getBooks() {
+        return books;
+    }
 
     @Override
     public String toString() {
-        return "calcconsole.hw01.Person{" +
+        return "Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
@@ -50,7 +82,7 @@ public class Person implements Cloneable {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Person tmpPerson = new Person(this.firstName, this.lastName, this.age);
+        Person tmpPerson = (Person) super.clone();
         tmpPerson.books = new Book[this.books.length];
         for (int i = 0; i < this.books.length; i++) {
             tmpPerson.books[i] = (Book) this.books[i].clone();
@@ -58,4 +90,3 @@ public class Person implements Cloneable {
         return tmpPerson;
     }
 }
-
