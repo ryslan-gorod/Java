@@ -8,8 +8,12 @@ public class Matrix {
     public enum SizeElement {MIN, MAX};
 
     public void initMatrix(int x, int y) {
-        if (x < 1) throw new Error("x < 1");
-        if (y < 1) throw new Error("y < 1");
+        if (x < 1) {
+            throw new IllegalArgumentException("x < 1");
+        }
+        if (y < 1) {
+            throw new IllegalArgumentException("y < 1");
+        }
         matrix = new int[x][y];
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {

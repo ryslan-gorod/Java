@@ -1,9 +1,12 @@
 package calcconsole.hw01;
 
-public class HomeWork01 {
-    public static void main(String[] args) throws CloneNotSupportedException {
+import java.util.Arrays;
 
-        // Завдання 1.1
+public class HomeWork01 {
+
+    public static void main(String[] args) throws Exception {
+
+        // Task 1.1
 
         Footbol f = new Footbol();
         System.out.println(f.getResultOfBettings(3, 1, 3, 1));
@@ -11,51 +14,51 @@ public class HomeWork01 {
         System.out.println(f.getResultOfBettings(3, 1, 0, 1));
         System.out.println(f.getResultOfBettings(5, 4, 0, 3));
 
-        // Завдання 1.2
+        // Task 1.2
 
         Rhombus r = new Rhombus();
-        r.printRhombus(6);
+        r.printRhombus(12);
 
-        // Завдання 1.3
+        // Task 1.3
 
         MyMath m = new MyMath();
         System.out.println(m.setToPow2(25));
         System.out.println(m.setToPow3(25));
         System.out.println(m.setToPowN(25, 5));
 
-        // Завдання 1.4
+        // Task 1.4
 
         Recursion recursion = new Recursion();
         System.out.println(recursion.fibonachi(10));
         System.out.println(recursion.factorial(10));
         System.out.println("teilor - " + recursion.teylorSeries(5, 4));
 
-        // Завдання 1.5
+        // Task 1.5
 
         MySort ms = new MySort();
-        int[] array = new int[1000000];
+        int[] array = new int[20];
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random() * 1000);
         }
         //System.out.println(Arrays.toString(array));
         long t = System.currentTimeMillis();
-        //ms.sortIntBubble(array);// 17 хв.
-        //ms.sortIntChoise(array); // 8 хв.
-        //ms.sortIntInserts(array); // 1 хв.
+        //ms.sortIntBubble(array);// 17 min.
+        //ms.sortIntChoise(array); // 8 min.
+        //ms.sortIntInserts(array); // 1 min.
         //int[] tmp = ms.sortIntMerge(array); //297 mc.
-        //ms.sortIntQuick(array,0,array.length-1);// 110 mc.
-        System.out.println("Час сортування (мс.) - " + (System.currentTimeMillis() - t));
-        System.out.println("Час сортування (хв.) - " + ((System.currentTimeMillis() - t)) / 60000);
+        ms.sortIntQuick(array, 0, array.length - 1);// 110 mc.
+        System.out.println("Sorting time (mc.) - " + (System.currentTimeMillis() - t));
+        System.out.println("Sorting time (min.) - " + ((System.currentTimeMillis() - t)) / 60000);
 
-        // Завдання 1.6
+        // Task 1.6
 
         Matrix matrix = new Matrix();
         matrix.initMatrix(5, 7);
         matrix.printMatrix();
-        System.out.println("Мінімальний елемент - " + matrix.getElememt(Matrix.SizeElement.MIN));
-        System.out.println("Максимальний елемент - " + matrix.getElememt(Matrix.SizeElement.MAX));
+        System.out.println("Min element - " + matrix.getElememt(Matrix.SizeElement.MIN));
+        System.out.println("Max element - " + matrix.getElememt(Matrix.SizeElement.MAX));
 
-        // Завдання 1.7
+        // Task 1.7
 
         Book[] books = new Book[]{
                 new Book("Aelita", "Tolstoy", 257),
@@ -72,20 +75,3 @@ public class HomeWork01 {
         System.out.println(p3.toString());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

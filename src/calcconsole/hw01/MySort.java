@@ -5,10 +5,8 @@ public class MySort {
         int tmp;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
-                if (array[i] > array[j]) { // тут якщо поміняти < на  > то сортуємо по спаданню
-                    tmp = array[j];
-                    array[j] = array[i];
-                    array[i] = tmp;
+                if (array[i] > array[j]) {
+                    array = swapElements(array, j, i);
                 }
             }
         }
@@ -22,9 +20,7 @@ public class MySort {
                 if (array[j] < array[min])
                     min = j;
             }
-            tmp = array[min];
-            array[min] = array[i];
-            array[i] = tmp;
+            array = swapElements(array, min, i);
         }
     }
 
@@ -61,9 +57,7 @@ public class MySort {
                 j--;
             }
             if (i <= j) {
-                tmp = array[i];
-                array[i] = array[j];
-                array[j] = tmp;
+                array = swapElements(array, i, j);
                 i++;
                 j--;
             }
@@ -111,5 +105,12 @@ public class MySort {
             }
         }
         return result;
+    }
+
+    private int[] swapElements(int[] array, int firstIndex, int secondIndex) {
+        int tmp = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = tmp;
+        return array;
     }
 }
