@@ -1,4 +1,4 @@
-package calcconsole;
+package com.ua.mate;
 
 import java.util.Scanner;
 
