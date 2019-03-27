@@ -1,6 +1,7 @@
 package com.ua.mate.hw01;
 
 public class MySort {
+
     public void sortIntBubble(int[] array) {
         int tmp;
         for (int i = 0; i < array.length; i++) {
