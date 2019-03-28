@@ -1,4 +1,4 @@
-package com.ua.mate.hw02.Deposit;
+package com.ua.mate.hw02.deposit;
 
 public class Deposit {
     private String currency;

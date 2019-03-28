@@ -1,6 +1,6 @@
 package com.ua.mate.hw02;
 
-import com.ua.mate.hw02.Deposit.Deposit;
+import com.ua.mate.hw02.deposit.Deposit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
