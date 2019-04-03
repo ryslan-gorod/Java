@@ -14,6 +14,9 @@ public class MyHashMap<K, V> {
     public void put(K key, V value) {
         Node<K, V> node = new Node<>(hashCode(key), key, value, null);
         int index = node.hash % arrayNode.length;
+        if (index < 0) {
+            index *= -1;
+        }
         if (arrayNode[index] == null) {
             arrayNode[index] = node;
             size++;
@@ -32,23 +35,27 @@ public class MyHashMap<K, V> {
         resize(arrayNode.length * 2);
     }
 
-    public V remove(K key) {
-        Node<K, V> node = new Node<>(hashCode(key), key, null, null);
+    public V remove(K key) throws ValueNotFoundException {
+        // Create tmpNode in order to calculate the HashCode and determine the index in the array
+        Node<K, V> tmpNode = new Node<>(hashCode(key), key, null, null);
         Node<K, V> previousNode, nextNode;
-        int index = node.hash % arrayNode.length;
+        int index = tmpNode.hash % arrayNode.length;
+        if (index < 0) {
+            index *= -1;
+        }
         V result;
         if (arrayNode[index] != null) {
             do {
                 previousNode = arrayNode[index];
                 nextNode = arrayNode[index].next;
-                if (previousNode.key == node.key) {
+                if (previousNode.key == tmpNode.key) {
                     result = previousNode.value;
                     arrayNode[index] = nextNode;
                     size--;
                     return result;
                 }
                 if (nextNode != null) {
-                    if (nextNode.key == node.key) {
+                    if (nextNode.key == tmpNode.key) {
                         result = nextNode.value;
                         previousNode.next = nextNode.next;
                         arrayNode[index] = previousNode;
@@ -58,7 +65,7 @@ public class MyHashMap<K, V> {
                 }
             } while (nextNode != null);
         }
-        throw new NullPointerException("Value not found");
+        throw new ValueNotFoundException("Value not found");
     }
 
     public void clear() {
@@ -69,17 +76,18 @@ public class MyHashMap<K, V> {
         return size;
     }
 
-    public V get(K key) {
-        Node<K, V> node = new Node<>(hashCode(key), key, null, null);
-        int index = node.hash % arrayNode.length;
+    public V get(K key) throws ValueNotFoundException {
+        // Create tmpNode in order to calculate the HashCode and determine the index in the array
+        Node<K, V> tmpNode = new Node<>(hashCode(key), key, null, null);
+        int index = tmpNode.hash % arrayNode.length;
         if (arrayNode[index] != null) {
             do {
-                if (arrayNode[index].key == node.key) {
+                if (arrayNode[index].key == tmpNode.key) {
                     return arrayNode[index].value;
                 }
             } while (arrayNode[index].next != null);
         }
-        throw new NullPointerException("Value not found");
+        throw new ValueNotFoundException("Value not found");
     }
 
     private int hashCode(Object key) {

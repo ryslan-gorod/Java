@@ -12,13 +12,21 @@ public class HomeWork05 {
         stringMap.put("one","one1");
         System.out.println(stringMap);
         System.out.println(stringMap.size());
-        stringMap.remove("one");
+        try {
+            stringMap.remove("one");
+        } catch (ValueNotFoundException e) {
+            e.printStackTrace();
+        }
         System.out.println(stringMap);
         System.out.println(stringMap.size());
         stringMap.put("one","one");
         System.out.println(stringMap);
         System.out.println(stringMap.size());
-        System.out.println(stringMap.get("two"));
+        try {
+            System.out.println(stringMap.get("two"));
+        } catch (ValueNotFoundException e) {
+            e.printStackTrace();
+        }
         stringMap.clear();
         System.out.println(stringMap);
     }
