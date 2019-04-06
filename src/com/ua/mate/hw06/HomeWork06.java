@@ -2,6 +2,7 @@ package com.ua.mate.hw06;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class HomeWork06 {
     public static void main(String[] args) throws IOException {
@@ -48,7 +49,7 @@ public class HomeWork06 {
     }
 
     public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
-        SortedSet<T> result = new TreeSet<>(new HashSet<>());
+        SortedSet<T> result = new TreeSet<>();
         Set<T> tmpSet = new HashSet<>(set1);
         tmpSet.removeAll(set2);
         result.addAll(tmpSet);

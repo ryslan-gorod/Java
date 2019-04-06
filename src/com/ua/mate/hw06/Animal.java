@@ -34,7 +34,12 @@ class Animal implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        int hashCode = 0;
+        char[] charArray = name.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            hashCode += (int) Character.getNumericValue(charArray[i]);
+        }
+        return hashCode;
     }
 
     public static Animal[] deserializeAnimalArray(byte[] data) {
