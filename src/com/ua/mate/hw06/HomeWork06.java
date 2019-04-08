@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class HomeWork06 {
     public static void main(String[] args) throws IOException {
-/*
+
         //Task 5.4 from Stepik
         Animal[] animal = {new Animal("Dog"), new Animal("Pig"), new Animal("Cat"),
                 new Animal("Hourse"), new Animal("Wolf"), new Animal("Goat")};
@@ -31,7 +31,7 @@ public class HomeWork06 {
         Pair<Integer, String> pair2 = Pair.of(1, "hello");
         boolean mustBeTrue = pair.equals(pair2); // true!
         boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
-*/
+
         //Task 6.2
         Set<Integer> integerSet1 = new HashSet<>();
         integerSet1.add(5);
@@ -50,11 +50,12 @@ public class HomeWork06 {
 
     public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
         SortedSet<T> result = new TreeSet<>();
-        Set<T> tmpSet = new HashSet<>(set1);
-        tmpSet.removeAll(set2);
-        result.addAll(tmpSet);
-        set2.removeAll(set1);
-        result.addAll(set2);
+        Set<T> tmpSet1 = new HashSet<>(set1);
+        Set<T> tmpSet2 = new HashSet<>(set2);
+        tmpSet1.removeAll(set2);
+        result.addAll(tmpSet1);
+        tmpSet2.removeAll(set1);
+        result.addAll(tmpSet2);
         return result;
     }
 }
