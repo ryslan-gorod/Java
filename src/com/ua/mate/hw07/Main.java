@@ -11,6 +11,7 @@ import java.lang.reflect.Field;
 
 public class Main {
     public static void main(String[] args) throws IOException, IllegalAccessException {
+
         String property = PropertyLoader.getProperty("db.name");
         String propertyClass = PropertyLoader.getProperty("db.class");
         ConsoleHandler consoleHandler = new ConsoleHandler(property);
