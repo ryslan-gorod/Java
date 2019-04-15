@@ -8,7 +8,7 @@ public class MailService<T> implements Consumer<Sendable<T>> {
     Map<String, List<T>> myMap;
 
     public MailService() {
-        this.myMap = new MyMap<>();
+        this.myMap = new HashMap<>();
     }
 
     public Map<String, List<T>> getMailBox() {
