@@ -9,7 +9,7 @@ public class HomeWork11 {
         Scanner in = new Scanner(System.in);
         System.out.print("Input a string: ");
         String str = in.nextLine().toLowerCase();
-        String result = str.replaceAll("\\W", "_").replace("__", "_");
+        String result = str.replaceAll("\\W", "_");
         String[] strings = result.split("_");
         Arrays.stream(strings)
                 .map(x -> new MyString(x))// Create object for method collect
@@ -19,7 +19,11 @@ public class HomeWork11 {
                 .sorted((o1, o2) -> (int) (o2.getValue() - o1.getValue()))
                 .map(x -> x.getKey())//back from object to String
                 .limit(10)
-                .forEach(x -> System.out.println(x));
+                .forEach(x -> {
+                    if (x.length() > 0) {
+                        System.out.println(x);
+                    }
+                });
     }
 
     static class MyString {
