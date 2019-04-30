@@ -5,12 +5,18 @@
     <title>Main</title>
 </head>
 <body>
-    <p>Welcome, ${name}!</p>
-    <ul>
-        <c:forEach var="user" items="${users}">
-            <li><c:out value="${user.getName()}" /></li>
+    <c:if test="${name!=null}">
+        <p>Welcome, ${name}!</p>
+    </c:if>
+    <table border="1" cellspacing="5" cellpadding="5" >
+        <c:forEach var="user" items="${users}"><tr>
+            <td><c:out value="${user.getName()}" /> </td>
+            <td><a href="editServlet?login=${user.getLogin()}">edit</a> </td>
+            <td><a href="delServlet?login=${user.getLogin()}">delete</a> </td></tr>
         </c:forEach>
-    </ul>
-
+    </>
+    <form action="add" method="post">
+        <input type="submit" value="Add" content="Add">
+    </form>
 </body>
 </html>
