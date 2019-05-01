@@ -10,10 +10,7 @@ import java.io.IOException;
 public class AddServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        registration(req, resp,"/registration.jsp");
-    }
-    private void registration(HttpServletRequest req, HttpServletResponse resp, String jspPage) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher(jspPage);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/registration.jsp");
         requestDispatcher.include(req, resp);
     }
 }

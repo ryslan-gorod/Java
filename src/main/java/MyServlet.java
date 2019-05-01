@@ -5,8 +5,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @WebServlet(value = "/login")
 public class MyServlet extends HttpServlet {
@@ -53,12 +54,12 @@ public class MyServlet extends HttpServlet {
     }
 
     private User getUser(String login, String password) {
-        User us = new User();
+        User newUser = new User();
         for (User user : users) {
             if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
-                us = user;
+                newUser = user;
             }
         }
-        return us;
+        return newUser;
     }
 }
