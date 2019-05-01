@@ -23,8 +23,8 @@ public class MyServlet extends HttpServlet {
         if (newUser != null && newUser.getName() != null) {
             req.setAttribute("name", newUser.getName());
             req.setAttribute("users", users);
+            req.setAttribute("role",newUser.getRole());
             getServletContext().getRequestDispatcher("/main.jsp").forward(req, resp);
-            //registration(req, resp,"/main.jsp");
         } else if (name == null) {
             registration(req, resp, "/registration.jsp");
         } else {
@@ -32,7 +32,7 @@ public class MyServlet extends HttpServlet {
                 registration(req, resp, "/registration.jsp");
             } else {
                 if (newUser == null) {
-                    newUser = new User(users.size() + 1, name, login, password);
+                    newUser = new User(users.size() + 1, name, login, password, "user");
                 } else {
                     newUser.setId(users.size() + 1);
                     newUser.setName(name);
@@ -43,6 +43,7 @@ public class MyServlet extends HttpServlet {
                 users = UserDb.select();
                 req.setAttribute("name", name);
                 req.setAttribute("users", users);
+                req.setAttribute("role",newUser.getRole());
                 getServletContext().getRequestDispatcher("/main.jsp").forward(req, resp);
             }
         }

@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(value = "/editServlet")
@@ -18,6 +17,7 @@ public class editServlet extends HttpServlet {
         req.setAttribute("password",user.getPassword());
         req.setAttribute("name",user.getName());
         req.setAttribute("id",user.getId());
+        req.setAttribute("role",user.getRole());
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/edit.jsp");
         requestDispatcher.forward(req, resp);
     }
@@ -29,12 +29,15 @@ public class editServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password =  req.getParameter("password");
         String name =  req.getParameter("nameUser");
+        String role = req.getParameter("roleUser");
         user.setLogin(login);
         user.setPassword(password);
         user.setName(name);
+        user.setRole(role);
         UserDb.update(user);
         List<User> users = UserDb.select();
         req.setAttribute("users", users);
+        req.setAttribute("role",user.getRole());
         getServletContext().getRequestDispatcher("/main.jsp").forward(req, resp);
     }
 }

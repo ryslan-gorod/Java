@@ -26,7 +26,8 @@ public class UserDb {
                     String login = resultSet.getString(2);
                     String password = resultSet.getString(3);
                     String name = resultSet.getString(4);
-                    User user = new User(id, name, login, password);
+                    String role = resultSet.getString(5);
+                    User user = new User(id, name, login, password, role);
                     users.add(user);
                 }
             }
@@ -50,7 +51,8 @@ public class UserDb {
                         String log = resultSet.getString(2);
                         String password = resultSet.getString(3);
                         String name = resultSet.getString(4);
-                        user = new User(id, name, log, password);
+                        String role = resultSet.getString(5);
+                        user = new User(id, name, log, password, role);
                     }
                 }
             }
@@ -65,11 +67,12 @@ public class UserDb {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
-                String sql = "INSERT INTO users (login, password, name) Values (?, ?, ?)";
+                String sql = "INSERT INTO users (login, password, name, role) Values (?, ?, ?,?)";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setString(1, user.getLogin());
                     preparedStatement.setString(2, user.getPassword());
                     preparedStatement.setString(3, user.getName());
+                    preparedStatement.setString(4, user.getRole());
                     return preparedStatement.executeUpdate();
                 }
             }
@@ -83,12 +86,13 @@ public class UserDb {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
-                String sql = "UPDATE users SET name = ?, login = ?, password = ? WHERE id = ?";
+                String sql = "UPDATE users SET name = ?, login = ?, password = ?, role = ? WHERE id = ?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setString(1, user.getName());
                     preparedStatement.setString(2, user.getLogin());
                     preparedStatement.setString(3, user.getPassword());
-                    preparedStatement.setInt(4, user.getId());
+                    preparedStatement.setString(4, user.getRole());
+                    preparedStatement.setInt(5, user.getId());
                     return preparedStatement.executeUpdate();
                 }
             }

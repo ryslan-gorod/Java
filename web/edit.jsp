@@ -12,8 +12,17 @@
     Password <input name="password" type="password" class="my-input" required value="${password}"/><br>
     Confirm Password <input name="confirmPassword" type="password" class="my-input" required value="${password}"/><br>
     Name <input name="nameUser" type="text" class="my-input" required value="${name}"/><br>
+    Role <select class="my-input" name="roleUser">
+        <option selected value="${role}">${role}</option>
+            <c:if test="${role.equals(\"user\")}">
+                 <option value="admin">admin</option>
+            </c:if>
+            <c:if test="${role.equals(\"admin\")}">
+                 <option value="user">user</option>
+            </c:if>
+    </select>
+    <br>
     <input hidden type="text" name="id"  value="${id}">
-    <input type="checkbox" style="font-size: medium;"> Agree<br>
     <input type="submit" class="button">
 </form>
 </body>
