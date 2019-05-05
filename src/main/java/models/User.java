@@ -1,3 +1,5 @@
+package models;
+
 import java.util.Objects;
 
 public class User {
@@ -76,7 +78,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "models.User{" +
                 "Id=" + id +
                 ", name='" + name + '\'' +
                 ", login='" + login + '\'' +

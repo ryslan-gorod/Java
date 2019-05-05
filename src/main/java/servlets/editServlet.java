@@ -1,3 +1,6 @@
+package servlets;
+
+import dao.UserDb;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,8 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import models.User;
 
-@WebServlet(value = "/editServlet")
+@WebServlet(value = "/servlets.editServlet")
 public class editServlet extends HttpServlet {
     @Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
